@@ -16,7 +16,8 @@ class App extends Component {
             <Router>
                 <MyNavbar/>
                     <Switch>
-                        <Route path='/quotes' exact component={Quotes}/>
+                        <Route path='/' exact render={()=><p>Home page</p>} />
+                        <Route path='/quotes' component={Quotes}/>
                         <Route path='/quotes/category/:name' component={Quotes}/>
                         <Route path='/quotes/:id' component={EditQuote}/>
                         <Route path='/addQuote' component={AddQuote}/>
