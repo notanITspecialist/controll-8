@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import axios from "axios";
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import {NavLink} from "react-router-dom";
 
 class EditQuote extends Component {
     state = {
-        quote: {title:'',text:''}
+        quote: {category:'StarWars',title:'',text:''}
     };
 
     async componentDidMount() {
@@ -26,7 +25,11 @@ class EditQuote extends Component {
 
     editQuote = async e => {
         e.preventDefault();
-        await axios.put('https://control-8-ramazan.firebaseio.com/quotes/'+this.props.match.params.id+'.json', this.state.quote)
+        const select = document.getElementById("exampleSelect");
+        const value = select.options[select.selectedIndex].value;
+        const date = {...this.state.quote, category: value}
+        await axios.put('https://control-8-ramazan.firebaseio.com/quotes/'+this.props.match.params.id+'.json', date)
+        this.props.history.push('/quotes')
     };
 
     render() {
@@ -51,9 +54,7 @@ class EditQuote extends Component {
                             <option>Motivational</option>
                         </Input>
                     </FormGroup>
-                    <NavLink to="/quotes" >
                         <Button>ADD</Button>
-                    </NavLink>
                 </Form>
             </div>
         );

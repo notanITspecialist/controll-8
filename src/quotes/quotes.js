@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import Quote from "./quote/quote";
 import Category from "../categories/category/category";
-import { ListGroup, ListGroupItem} from 'reactstrap';
+import { ListGroup} from 'reactstrap';
 
 class Quotes extends Component {
     state = {
@@ -14,7 +14,8 @@ class Quotes extends Component {
         if(this.props.match.params.name){
             url += '?orderBy="category"&equalTo="'+this.props.match.params.name+'"'
         }
-        const dataQuotes = await axios(url);
+        console.log(this.props.match.params.name);
+        const dataQuotes = await axios.get(url);
         this.setState({quotes: dataQuotes.data})
     };
 

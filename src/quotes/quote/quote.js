@@ -14,7 +14,7 @@ class Quote extends Component {
             <ListGroupItem className="quote">
                 <span className="quote-text">"{this.props.text}"</span>
                 <span className="quote-title">{this.props.title}</span>
-                <span className="quote-edit"><NavLink to={'/quotes/'+this.props.id}><button>Edit</button></NavLink></span>
+                <span className="quote-edit"><NavLink to={'/quotes/edit/'+this.props.id}><button>Edit</button></NavLink></span>
                 <span onClick={this.delete} className="quote-delete"><button>Х</button></span>
             </ListGroupItem>
         );
