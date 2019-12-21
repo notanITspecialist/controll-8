@@ -6,7 +6,6 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink as NavItm,
 } from 'reactstrap';
 import {NavLink} from "react-router-dom";
 
@@ -26,7 +25,7 @@ const MyNavbar = props => {
                             <NavLink to='/'>Quotes</NavLink>
                         </NavItem>
                         <NavItem>
-                            {/*<NavLink to='/'>Add quote</NavLink>*/}
+                            <NavLink to='/addQuote'>Add quote</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>
