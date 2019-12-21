@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Quotes from "./quotes/quotes";
 import AddQuote from "./addQuotes/addQuote";
+import EditQuote from "./editQuote/editQuote";
 
 class App extends Component {
     render() {
@@ -15,8 +16,10 @@ class App extends Component {
             <Router>
                 <MyNavbar/>
                     <Switch>
-                        <Route path='/' exact component={Quotes}/>
+                        <Route path='/quotes' exact component={Quotes}/>
+                        <Route path='/quotes/:id' component={EditQuote}/>
                         <Route path='/addQuote' component={AddQuote}/>
+                        <Route path='/quotes/:name' component={Quotes}/>
                     </Switch>
             </Router>
         </div>

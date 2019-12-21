@@ -1,39 +1,45 @@
 import React, {Component} from 'react';
-import axios from 'axios'
+import axios from "axios";
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import {NavLink} from "react-router-dom";
 
-class AddQuote extends Component {
+class EditQuote extends Component {
     state = {
-      title:'',
-      text:''
+        quote: {title:'',text:''}
     };
-    addQuote = async e => {
+
+    async componentDidMount() {
+        const data = await axios.get('https://control-8-ramazan.firebaseio.com/quotes/'+this.props.match.params.id+'.json');
+        this.setState({quote:data.data});
+    }
+
+    changeText = e => {
+        const state = this.state.quote;
+        state.text = e.target.value;
+        this.setState({quote:state})
+    };
+    changeTitle = e => {
+        const state = this.state.quote;
+        state.title = e.target.value;
+        this.setState({quote:state})
+    };
+
+    editQuote = async e => {
         e.preventDefault();
-        const select = document.getElementById("exampleSelect");
-        const value = select.options[select.selectedIndex].value;
-        const data = {
-            title: this.state.title,
-            text: this.state.text,
-            category: value
-        };
-
-        await axios.post('https://control-8-ramazan.firebaseio.com/quotes.json',data)
+        await axios.put('https://control-8-ramazan.firebaseio.com/quotes/'+this.props.match.params.id+'.json', this.state.quote)
     };
 
-    changeTitle = e => this.setState({title:e.target.value});
-    changeText = e => this.setState({text:e.target.value});
     render() {
         return (
             <div>
-                <Form onSubmit={this.addQuote}>
+                <Form onSubmit={this.editQuote}>
                     <FormGroup>
                         <Label for="exampleText">Autor</Label>
-                        <Input type="text" name="text" value={this.state.title} onChange={this.changeTitle}/>
+                        <Input type="text" name="text" value={this.state.quote.title} onChange={this.changeTitle}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleText">Text</Label>
-                        <Input type="textarea" name="text" value={this.state.text} onChange={this.changeText}/>
+                        <Input type="textarea" name="text" value={this.state.quote.text} onChange={this.changeText}/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleSelect">Category</Label>
@@ -54,4 +60,4 @@ class AddQuote extends Component {
     }
 }
 
-export default AddQuote;
+export default EditQuote;

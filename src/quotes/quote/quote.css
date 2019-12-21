@@ -1,0 +1,34 @@
+.quote {
+    border: 1px solid #ccc;
+    width: 100%;
+    min-height: 80px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.quote-title {
+    position: absolute;
+    bottom: 5px;
+    left: 5px
+}
+
+.quote-text {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+}
+
+.quote-edit {
+    position: absolute;
+    top: 5px;
+    right: 40px
+
+}
+
+.quote-delete {
+    position: absolute;
+    top: 5px;
+    right: 5px
+
+}
