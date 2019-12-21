@@ -60,6 +60,7 @@ class Quotes extends Component {
                     <Category title="All"/>
                     {categories}
                 </ListGroup>
+                {this.props.match.params.name && <p>{this.props.match.params.name}</p>}
                 <div style={{display: 'inline-block', width: '100%'}}>{list !== null && list.reverse()}</div>
             </div>
         );
