@@ -6,6 +6,7 @@ import {
     Switch,
     Route,
 } from "react-router-dom";
+import Quotes from "./quotes/quotes";
 
 class App extends Component {
     add = () =>{
@@ -26,7 +27,7 @@ class App extends Component {
             <Router>
                 <MyNavbar/>
                     <Switch>
-                        <Route path='/' exact component={}/>
+                        <Route path='/' exact component={Quotes}/>
                     </Switch>
             </Router>
         </div>

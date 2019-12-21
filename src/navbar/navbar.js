@@ -8,6 +8,7 @@ import {
     NavItem,
     NavLink as NavItm,
 } from 'reactstrap';
+import {NavLink} from "react-router-dom";
 
 const MyNavbar = props => {
     const [isOpen, setIsOpen] = useState(false);
@@ -22,10 +23,10 @@ const MyNavbar = props => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavItm>Quotes</NavItm>
+                            <NavLink to='/'>Quotes</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavItm>Add quote</NavItm>
+                            {/*<NavLink to='/'>Add quote</NavLink>*/}
                         </NavItem>
                     </Nav>
                 </Collapse>
