@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import {NavLink} from "react-router-dom";
 
 class AddQuote extends Component {
     state = {
@@ -19,6 +18,7 @@ class AddQuote extends Component {
         };
 
         await axios.post('https://control-8-ramazan.firebaseio.com/quotes.json',data)
+        this.props.history.push('/quotes')
     };
 
     changeTitle = e => this.setState({title:e.target.value});
@@ -45,9 +45,7 @@ class AddQuote extends Component {
                             <option>Motivational</option>
                         </Input>
                     </FormGroup>
-                    <NavLink to="/quotes" >
-                        <Button>ADD</Button>
-                    </NavLink>
+                    <Button>ADD</Button>
                 </Form>
             </div>
         );

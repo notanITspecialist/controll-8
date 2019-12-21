@@ -22,7 +22,7 @@ const MyNavbar = props => {
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink to='/quotes'>Quotes</NavLink>
+                            <NavLink style={{marginRight:'5px'}} to='/quotes'>Quotes</NavLink>
                         </NavItem>
                         <NavItem>
                             <NavLink to='/addQuote'>Add quote</NavLink>

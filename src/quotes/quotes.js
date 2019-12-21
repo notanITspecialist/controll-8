@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from "axios";
 import Quote from "./quote/quote";
 import Category from "../categories/category/category";
+import { ListGroup, ListGroupItem} from 'reactstrap';
 
 class Quotes extends Component {
     state = {
@@ -54,10 +55,10 @@ class Quotes extends Component {
 
         return (
             <div>
-                <ul style={{float: 'left'}}>
-                    <Category onClick title="All"/>
+                <ListGroup>
+                    <Category title="All"/>
                     {categories}
-                </ul>
+                </ListGroup>
                 <div style={{display: 'inline-block', width: '100%'}}>{list !== null && list.reverse()}</div>
             </div>
         );
