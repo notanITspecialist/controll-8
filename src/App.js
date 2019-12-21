@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import MyNavbar from "./navbar/navbar";
+import MyNavbar from "./components/navbar/navbar";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
 } from "react-router-dom";
-import Quotes from "./quotes/quotes";
-import AddQuote from "./addQuotes/addQuote";
-import EditQuote from "./editQuote/editQuote";
+import Quotes from "./components/quotes/quotes";
+import AddQuote from "./components/addQuotes/addQuote";
+import EditQuote from "./components/editQuote/editQuote";
 
 class App extends Component {
     render() {
